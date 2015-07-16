@@ -8,22 +8,8 @@ ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: 'your_data
 ActiveRecord::Base.logger = ActiveSupport::Logger.new(STDOUT)
 
 # Models
-require_relative "models/task.rb"
+require_relative "photographer.rb"
+require_relative "photo.rb"
+require_relative "album.rb"
 
 binding.pry
-
-unless ActiveRecord::Base.connection.table_exists?(:photographers)
-  ActiveRecord::Base.connection.create_table :photographers do |p|
-    p.string :name
-    p.string :cameratype
-    p.string :employer
-  end  
-end
-
-unless ActiveRecord::Base.connection.table_exists?(:photos)
-  ActiveRecord::Base.connection.create_table :photos do |p|
-    p.string :title
-    p.integer :photographer_id
-  end  
-end
-
