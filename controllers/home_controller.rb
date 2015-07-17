@@ -3,6 +3,7 @@ get "/home" do
   else
     redirect "/login"
   end
+  
 end
 
 get "/login" do
@@ -14,5 +15,5 @@ get "/login-validation" do
 end
 
 get "/mainpage" do
-  
+  erb :"/main/home"
 end
