@@ -1,5 +1,6 @@
 get "/home" do
   if session[:user_id]
+    redirect "/mainpage"
   else
     redirect "/login"
   end
