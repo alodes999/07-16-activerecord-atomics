@@ -8,11 +8,12 @@ get "/photo-view" do
 end
 
 get "/photo-add" do
+  @photographer = Photographer.all
   erb :"/photo/add"
 end
 
 get "/photo-to-database" do
-  add_hash = {"name": "#{params["photographer"]["name"]}", "cameratype": "#{params["photographer"]["cameratype"]}", "employer": "#{params["photographer"]["employer"]}"}
+  add_hash = {"title": "#{params["photo"]["title"]}", "photographer_id": "#{params["photo"]["photographer_id"]}"}
   
   a = Photo.add(add_hash)
   
@@ -26,6 +27,7 @@ end
  
 get "/photo-edit" do
   @photo = Photo.all
+  @photographer = Photographer.all
   erb :"/photo/edit"
 end
 
@@ -47,4 +49,9 @@ end
 get "/photo-delete" do
   @photo = Photo.all
   erb :"/photo/delete"
+end
+
+get "/photo-delete-action" do
+  Photographer.delete(params["photographer"]["id"])
+  erb :"/success/success"
 end

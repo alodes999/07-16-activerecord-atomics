@@ -2,8 +2,8 @@
 
 <form action="/edit_photographer_to_database">
   
-  <select name="photographer[id]">
-    <% @photographer.each do |p| %>
+  <select name="photo[id]">
+    <% @photo.each do |p| %>
       <option value="<%= p.id %>"><%= p.name %></option>
     <% end %>
   </select>

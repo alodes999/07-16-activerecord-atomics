@@ -1,12 +1,17 @@
-<h2>Add Photographer to Database</h2>
+<h2>Add Photo to Database</h2>
 
-<form action="/photographer_to_database">
+<form action="/photo_to_database">
   
-  <input type="text" placeholder="Photographer Name" name="photographer[name]">
-  <input type="text" placeholder="Camera type used" name="photographer[cameratype]">  
-  <input type="text" placeholder="Employer" name="photographer[employer]">
+  <input type="text" placeholder="Photo Title" name="photo[title]">
+ 
+  <select name="photographer[id]">
+    <% @photographer.each do |p| %>
+      <option value="<%= p.id %>"><%= p.name %></option>
+    <% end %>
+  </select> 
+
   
-  <button type="submit">Add Photographer</button>
+  <button type="submit">Add Photo</button>
 </form>
 
 <p><a href='/home'>Go to Home Page</a></p>

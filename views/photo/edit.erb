@@ -1,16 +1,20 @@
 <h2>Change Photographer</h2>
 
-<form action="/edit_photographer_to_database">
+<form action="/edit_photo_in_database">
   
-  <select name="photographer[id]">
-    <% @photographer.each do |p| %>
+  <select name="photo[id]">
+    <% @photo.each do |p| %>
       <option value="<%= p.id %>"><%= p.name %></option>
     <% end %>
   </select>
     
-  <input type="text" placeholder="Photographer Name" name="photographer[name]">
-  <input type="text" placeholder="Camera type used" name="photographer[cameratype]">  
-  <input type="text" placeholder="Employer" name="photographer[employer]">
+  <input type="text" placeholder="Photo Title" name="photo[title]">
+
+  <select name="photo[photographer_id]">
+    <% @photographer.each do |p| %>
+      <option value="<%= p.id %>"><%= p.name %></option>
+    <% end %>
+  </select>
 
   <button type="submit">Add Photographer</button>
 </form>
