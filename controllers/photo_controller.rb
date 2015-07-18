@@ -15,7 +15,7 @@ end
 get "/photo-to-database" do
   add_hash = {"title": "#{params["photo"]["title"]}", "photographer_id": "#{params["photo"]["photographer_id"]}"}
   
-  a = Photo.add(add_hash)
+  a = Photo.new(add_hash)
   
   if a.save
     erb :"/success/success"

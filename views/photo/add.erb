@@ -1,10 +1,10 @@
 <h2>Add Photo to Database</h2>
 
-<form action="/photo_to_database">
+<form action="/photo-to-database">
   
   <input type="text" placeholder="Photo Title" name="photo[title]">
  
-  <select name="photographer[id]">
+  <select name="photo[photographer_id]">
     <% @photographer.each do |p| %>
       <option value="<%= p.id %>"><%= p.name %></option>
     <% end %>

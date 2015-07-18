@@ -14,7 +14,7 @@ end
 get "/album-to-database" do
   add_hash = {"title": "#{params["album"]["title"]}"}
   
-  a = Album.add(add_hash)
+  a = Album.new(add_hash)
   
   if a.save
     erb :"/success/success"
