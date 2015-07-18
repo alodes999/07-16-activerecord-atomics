@@ -1,12 +1,12 @@
-<h2>Delete Photographer</h2>
+<h2>Delete Album</h2>
 
-<form action="/photographer-delete-action">
-  <select name="photographer[id]">
-    <% @photographer.each do |p| %>
-      <option value="<%= p.id %>"><%= p.name %></option>
+<form action="/album-delete-action">
+  <select name="album[id]">
+    <% @album.each do |p| %>
+      <option value="<%= p.id %>"><%= p.title %></option>
     <% end %>
   </select>
   
-  <button type="submit">Delete Photographer</button>
+  <button type="submit">Delete Album</button>
 </form>
 <p><a href='/home'>Go to Home Page</a></p>

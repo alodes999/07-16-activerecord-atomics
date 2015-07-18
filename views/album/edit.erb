@@ -1,18 +1,16 @@
-<h2>Change Photographer</h2>
+<h2>Change Album Title</h2>
 
-<form action="/edit_photographer_to_database">
+<form action="/edit_album_in_database">
   
-  <select name="photo[id]">
-    <% @photo.each do |p| %>
-      <option value="<%= p.id %>"><%= p.name %></option>
+  <select name="album[id]">
+    <% @album.each do |p| %>
+      <option value="<%= p.id %>"><%= p.title %></option>
     <% end %>
   </select>
     
-  <input type="text" placeholder="Photographer Name" name="photographer[name]">
-  <input type="text" placeholder="Camera type used" name="photographer[cameratype]">  
-  <input type="text" placeholder="Employer" name="photographer[employer]">
+  <input type="text" placeholder="Album Title" name="album[title]">
 
-  <button type="submit">Add Photographer</button>
+  <button type="submit">Edit Album</button>
 </form>
 
 <p><a href='/home'>Go to Home Page</a></p>

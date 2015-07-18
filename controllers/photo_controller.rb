@@ -52,6 +52,6 @@ get "/photo-delete" do
 end
 
 get "/photo-delete-action" do
-  Photographer.delete(params["photographer"]["id"])
+  Photo.delete(params["photo"]["id"])
   erb :"/success/success"
 end
