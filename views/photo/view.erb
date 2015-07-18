@@ -1,8 +1,8 @@
-<h2>View Photographers</h2>
+<h2>View Photos</h2>
 
 <ul>
-  <% @photographer.each do |p| %>
-  <li><%= p.name %> - <%= p.cameratype %> - <%= p.employer %></li>
+  <% @photo.each do |p| %>
+  <li><%= p.title %> - <%= p.photographer_id %></li>
   <% end %>
 </ul
 

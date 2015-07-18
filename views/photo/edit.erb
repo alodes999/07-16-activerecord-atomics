@@ -1,10 +1,10 @@
-<h2>Change Photographer</h2>
+<h2>Change Photo</h2>
 
 <form action="/edit_photo_in_database">
   
   <select name="photo[id]">
     <% @photo.each do |p| %>
-      <option value="<%= p.id %>"><%= p.name %></option>
+      <option value="<%= p.id %>"><%= p.title %></option>
     <% end %>
   </select>
     
@@ -16,7 +16,7 @@
     <% end %>
   </select>
 
-  <button type="submit">Add Photographer</button>
+  <button type="submit">Change Photo</button>
 </form>
 
 <p><a href='/home'>Go to Home Page</a></p>
