@@ -7,8 +7,12 @@ get "/albumphoto-view" do
 end
 
 get "/albumphoto-add" do
+  @photo = Photo.all
+  @album = Album.all 
   erb :"/albumphoto/add"
 end
+
+get ""
 
 get "/albumphoto-edit" do
   erb :"/albumphoto/edit"

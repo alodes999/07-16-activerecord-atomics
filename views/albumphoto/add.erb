@@ -1,12 +1,19 @@
 <h2>Add Photographer to Database</h2>
 
-<form action="/photographer_to_database">
+<form action="/add-to-bridge-table">
   
-  <input type="text" placeholder="Photographer Name" name="photographer[name]">
-  <input type="text" placeholder="Camera type used" name="photographer[cameratype]">  
-  <input type="text" placeholder="Employer" name="photographer[employer]">
+  <select name="album[id]">
+    <% @album.each do |p| %>
+      <option value="<%= p.id %>"><%= p.title %></option>
+    <% end %>
+  </select>
   
-  <button type="submit">Add Photographer</button>
+  <select name="photo[id]">
+    <% @photo.each do |p| %>
+      <option value="<%= p.id %>"><%= p.title %></option>
+    <% end %>
+  </select>
+  
 </form>
 
 <p><a href='/home'>Go to Home Page</a></p>
