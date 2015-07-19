@@ -11,7 +11,6 @@ get "/" do
   erb :"/main/login"
 end
 
-
 get "/login" do
   erb :"/main/login"
 end
@@ -23,7 +22,29 @@ get "/logintype" do
     erb :"/main/newuserform" 
 end
 
-get "newuserauth" do
+
+get "/login-validation" do
+  array = User.where("name" => params["login"]["username"])
+  if array == []
+    @errors = "Login Failed."
+    return erb :"main/loginform"
+  end
+  user = array[0]
+  if user.valid_password?(params["login"]["password"])
+    session[:id] = user.id
+    return erb :"main/home"
+  else
+    @errors = user.errors.messages["login"]
+    erb :"main/loginform"
+  end
+end
+
+get "/home" do
+  erb :"/main/home"
+end
+
+
+get "/add-user" do
   password = BCrypt::Password.create(params["login"]["password"])
   username = params["login"]["username"]
   
@@ -36,17 +57,5 @@ get "newuserauth" do
   else
     @errors = newuser.errors.messages
     return erb :"/main/newuserform"
-end
-
-get "/login-validation" do
-  
-end
-
-get "/home" do
-  erb :"/main/home"
-end
-
-
-get "/add-user" do
-  
+  end
 end
