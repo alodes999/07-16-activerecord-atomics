@@ -20,16 +20,20 @@ get "/logintype" do
     erb :"/main/loginform"
   else
     erb :"/main/newuserform" 
+  end
 end
 
 
 get "/login-validation" do
   array = User.where("name" => params["login"]["username"])
+  
   if array == []
     @errors = "Login Failed."
     return erb :"main/loginform"
   end
+  
   user = array[0]
+  
   if user.valid_password?(params["login"]["password"])
     session[:id] = user.id
     return erb :"main/home"
@@ -37,10 +41,15 @@ get "/login-validation" do
     @errors = user.errors.messages["login"]
     erb :"main/loginform"
   end
+  
 end
 
 get "/home" do
-  erb :"/main/home"
+  if session[:id] = nil
+    redirect "/login"
+  else
+    erb :"main/home"
+  end
 end
 
 
@@ -58,4 +67,5 @@ get "/add-user" do
     @errors = newuser.errors.messages
     return erb :"/main/newuserform"
   end
+  
 end
