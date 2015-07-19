@@ -1,0 +1,14 @@
+<h2>New User Form</h2>
+
+<% if @errors.length > 0 %>
+  <p><%= @errors %></p>  
+<% end %>
+
+<form action='newuserauth'>
+  
+  <input type='text' placeholder='User Name' name="login[username]">
+  <input type='text' placeholder='Password' name="login[password]">
+  
+  <button type="Submit">Create new user</button>
+  
+</form>

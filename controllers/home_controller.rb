@@ -23,6 +23,21 @@ get "/logintype" do
     erb :"/main/newuserform" 
 end
 
+get "newuserauth" do
+  password = BCrypt::Password.create(params["login"]["password"])
+  username = params["login"]["username"]
+  
+  newuser = User.new("name": username, "password": password)
+  
+  if newuser.valid?
+    newuser.save
+    session[:id] = user.id
+    redirect "/home"
+  else
+    @errors = newuser.errors.messages
+    return erb :"/main/newuserform"
+end
+
 get "/login-validation" do
   
 end
