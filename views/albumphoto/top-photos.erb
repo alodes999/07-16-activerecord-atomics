@@ -1,0 +1,11 @@
+<h2>Top Photos</h2>
+<p>These photos appear in 3 or more albums</p>
+
+<ul>
+  <% @top_photo_list.each do |photo|  %>
+    <li><%= photo.title %></li>
+  <% end %>  
+</ul>
+
+
+<p><a href='/home'>Go to Home Page</a></p>

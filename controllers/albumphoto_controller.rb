@@ -30,8 +30,17 @@ get "/add-to-bridge-table" do
   erb :"/success/success"
 end
 
-get "/albumphoto-edit" do
-  erb :"/albumphoto/edit"
+get "/albumphoto-view-top-photos" do
+  photos = Photo.all
+  @top_photo_list = []
+  
+  photos.each do |p|
+    if p.top_photo?
+      @top_photo_list << p
+    end
+  end
+  
+  erb :"/albumphoto/top-photos"
 end
 
 get "/albumphoto-delete" do
