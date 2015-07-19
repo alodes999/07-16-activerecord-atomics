@@ -9,8 +9,6 @@ require "sinatra"
 require "sinatra/reloader"
 require "sinatra/cross_origin"
 
-# set :sessions => true
-
 ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: 'your_database.db')
 
 # So that ActiveRecord explains the SQL it's running in the logs.
@@ -28,3 +26,5 @@ require_relative "controllers/home_controller"
 require_relative "controllers/photo_controller"
 require_relative "controllers/photographer_controller"
 require_relative "controllers/albumphoto_controller"
+
+enable :sessions
