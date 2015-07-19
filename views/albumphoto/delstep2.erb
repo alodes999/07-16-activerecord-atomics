@@ -1,0 +1,13 @@
+<h2>Pick Album to Delete Photo from</h2>
+
+<form action="albumphoto-delete-action">
+  <select name="album[id]">
+    <% @albumlist.each do |p| %>
+      <option value="<%= p.id %>"><%= p.title %></option>
+    <% end %>
+  </select><br>
+  
+  <input type="hidden" value="<%= @photo.id %>" name="album[photo_id]">
+  <button type="submit">Delete from Album</button>
+  
+</form>
