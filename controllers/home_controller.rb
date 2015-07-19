@@ -16,7 +16,7 @@ get "/login" do
 end
 
 get "/logintype" do
-  if !params["login"].include?("newuser")
+  if !params["login"].include?("new_user")
     erb :"/main/loginform"
   else
     erb :"/main/newuserform" 
@@ -61,7 +61,7 @@ get "/add-user" do
   
   if newuser.valid?
     newuser.save
-    session[:id] = user.id
+    session[:id] = newuser.id
     redirect "/home"
   else
     @errors = newuser.errors.messages
