@@ -1,9 +1,14 @@
-<h2>View Photographers</h2>
+<h2>Pick Album to view</h2>
 
-<ul>
-  <% @photographer.each do |p| %>
-  <li><%= p.name %> - <%= p.cameratype %> - <%= p.employer %></li>
-  <% end %>
-</ul
+<form action="/albumphoto-picked-album">
+ <select name="albumphoto[id]">
+   <% @album.each do |p| %>
+     <option value="<%= p.id %>"><%= p.title %></option>
+   <% end %>
+ </select>
+ 
+ <button type="submit">View Album</button>
+ 
+</form>
 
 <p><a href='/home'>Go to Home Page</a></p>

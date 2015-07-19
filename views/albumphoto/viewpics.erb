@@ -1,0 +1,9 @@
+<h2>List of Pictures in Album <%= @title %></h2>
+
+<ul>
+  <% @list_of_pics.each do |l| %>
+    <li><%= l.title %></li>
+  <% end %>
+</ul>
+
+<p><a href='/home'>Go to Home Page</a></p>
