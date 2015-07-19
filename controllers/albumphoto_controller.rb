@@ -2,7 +2,7 @@ get "/albumphoto-main" do
   erb :"/main/albumphoto-main"
 end
 
-get "/albumphoto-view" do
+get "/albumphoto-view-album" do
   erb :"/albumphoto/view"
 end
 
@@ -12,7 +12,12 @@ get "/albumphoto-add" do
   erb :"/albumphoto/add"
 end
 
-get ""
+get "/add-to-bridge-table" do
+  album_to_merge = Album.find(params["album"]["id"])
+  photo_to_merge = Photo.find(params["photo"]["id"])
+  
+  album_to_merge.photos << photo_to_merge
+end
 
 get "/albumphoto-edit" do
   erb :"/albumphoto/edit"
