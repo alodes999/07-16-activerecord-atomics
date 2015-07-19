@@ -10,7 +10,7 @@ require "sinatra/cross_origin"
 
 configure :development do
   require 'sqlite3'
-  ActiveRecord:Base.establish_connection(adapter: 'sqlite3', database: 'your_database.db')
+  ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: 'your_database.db')
 end
 
 configure :production do  

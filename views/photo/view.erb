@@ -2,7 +2,11 @@
 
 <ul>
   <% @photo.each do |p| %>
-  <li><%= p.title %> - <%= p.photographer_id %></li>
+    <% if @top_photo_list.include?(p.id) %>
+      <li><%= p.title %> - <%= p.photographer_id %><img src='/top_star.png' alt='top photo star' class='topphotopic'></img></li>
+    <% else %>
+      <li><%= p.title %> - <%= p.photographer_id %></li>
+    <% end %>
   <% end %>
 </ul
 

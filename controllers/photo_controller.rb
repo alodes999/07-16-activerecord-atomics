@@ -4,6 +4,14 @@ end
 
 get "/photo-view" do
   @photo = Photo.all
+  @top_photo_list = []
+  
+  @photo.each do |photo|
+    if photo.top_photo?
+      @top_photo_list << photo.id
+    end
+  end
+  
   erb :"/photo/view"
 end
 
