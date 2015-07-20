@@ -11,6 +11,11 @@ get "/" do
   erb :"/main/login"
 end
 
+get "/logout" do
+  session["id"] = nil
+  erb :"/main/login"
+end
+
 get "/login" do
   erb :"/main/login"
 end
