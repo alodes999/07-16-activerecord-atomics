@@ -62,7 +62,7 @@ get "/add-user" do
   password = BCrypt::Password.create(params["login"]["password"])
   username = params["login"]["username"]
   
-  newuser = User.new("name": username, "password": password)
+  newuser = User.new("name" => username, "password" => password)
   
   if newuser.valid?
     newuser.save
