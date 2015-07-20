@@ -21,7 +21,7 @@ get "/photo-add" do
 end
 
 get "/photo-to-database" do
-  add_hash = {"title": "#{params["photo"]["title"]}", "photographer_id": "#{params["photo"]["photographer_id"]}"}
+  add_hash = {"title" => "#{params["photo"]["title"]}", "photographer_id" => "#{params["photo"]["photographer_id"]}"}
   
   a = Photo.new(add_hash)
   
