@@ -12,7 +12,7 @@ get "/photographer-add" do
 end
 
 get "/photographer_to_database" do
-  add_hash = {"name": "#{params["photographer"]["name"]}", "cameratype": "#{params["photographer"]["cameratype"]}", "employer": "#{params["photographer"]["employer"]}"}
+  add_hash = {"name" => "#{params["photographer"]["name"]}", "cameratype" => "#{params["photographer"]["cameratype"]}", "employer" => "#{params["photographer"]["employer"]}"}
   
   Photographer.create(add_hash)
   erb :"/success/success"
